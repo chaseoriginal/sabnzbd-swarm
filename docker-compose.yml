@@ -1,7 +1,7 @@
 services:
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:latest
-    container_name: ${container_name}
+    container_name: sabnzbd-swarm_sabnzbd
     environment:
     - PUID=1000
     - PGID=33
@@ -18,7 +18,7 @@ services:
     deploy:
       placement:
         constraints:
-        - node.labels.deployment.target.sabnzbd == true
+        - node.labels.deployment.target.sabnzbd==true
       restart_policy:
         condition: any
 volumes:
